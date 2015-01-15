@@ -1,2 +1,28 @@
-<table>
+<table class="table table-striped">
+<tr><th>ID</th><th>Name</th><th>Subtotal</th><th>Adjustments</th><th>Amount Due</th><th>Date Created</th><th>Status</th><th>Actions</th></tr>
+<?php foreach ($this->invoices as $invoice) {
+	// this should be moved to controller / model
+	$qtyList = explode("\n", $invoice->qty_list);
+	$rateList = explode("\n", $invoice->rate_list);
+	$subtotal = 0;
+	for ($i = 0; $i < count($qtyList); $i++) {
+		$subtotal += ($qtyList[$i] * $rateList[$i]);
+	}
+	$subtotal += $invoice->shipping;
+	if (!isset($invoice->adjustment) || $invoice->adjustment == "") {
+		$invoice->adjustment = 0;
+	}
+	$total = $subtotal - $invoice->adjustment;
+?>
+	<tr>
+		<td><?php echo $invoice->id; ?></td>
+		<td><?php echo $invoice->name; ?></td>
+		<td><?php echo "$".money_format("%n",$subtotal); ?></td>
+		<td><?php echo "$".money_format("%n", $invoice->adjustment); ?></td>
+		<td><?php echo "$".money_format("%n", $total); ?></td>
+		<td><?php echo $invoice->created_ts; ?></td>
+		<td><?php echo $invoice->status; ?></td>
+		<td><a href="/invoice/view/<?php echo $invoice->id;?>">View</a> | Edit</td>
+	</tr>
+<?php } ?>
 </table>

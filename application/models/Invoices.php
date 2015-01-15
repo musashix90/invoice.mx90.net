@@ -37,5 +37,14 @@ class Application_Model_Invoices
 		return $infoSet;
 	}
 
+	public function getAllInvoices()
+	{
+		$adapter = Zend_Db_Table::getDefaultAdapter();
+		$adapter->setFetchMode(Zend_Db::FETCH_OBJ);
+		$info = $adapter->query("SELECT id, name, addr1, addr2, city, state, zip, item_list, qty_list, rate_list, shipping, adjustment, DATE_FORMAT(created_ts, '%M %e, %Y') AS created_ts, status FROM invoices");
+		$infoSet = $info->fetchAll();
+		return $infoSet;
+	}
+
 }
 ?>

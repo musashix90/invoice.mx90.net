@@ -135,11 +135,11 @@ class InvoiceController extends Zend_Controller_Action
 		}
 	}
 
-
-
 	public function listAction()
 	{
-
+		$invoiceModel = new Application_Model_Invoices();
+		$invoiceArray = $invoiceModel->getAllInvoices();
+		$this->view->invoices = $invoiceArray;
 	}
 
 	public function viewAction()
