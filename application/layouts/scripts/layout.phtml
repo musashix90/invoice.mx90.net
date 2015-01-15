@@ -33,9 +33,6 @@
               </ul>
             </li>
           </ul>
-<!--          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>-->
         </div>
       </div>
     </div>
@@ -44,8 +41,8 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-	    <li<?php (Zend_Controller_Front::getInstance()->getRequest()->getControllerName() == "index" ? print ' class="active"' : "" ); ?>><a href="/invoice/create"><i class="fa fa-bar-chart-o"></i><span>Create Invoice</span></a></li>
-            <li<?php (Zend_Controller_Front::getInstance()->getRequest()->getControllerName() == "customer" ? print ' class="active"' : "" ); ?>><a href="/invoice/list"><i class="fa fa-users"></i><span>List Invoices</span></a></li>
+	    <li<?php (Zend_Controller_Front::getInstance()->getRequest()->getControllerName() == "invoice" && Zend_Controller_Front::getInstance()->getRequest()->getActionName() == "create" ? print ' class="active"' : "" ); ?>><a href="/invoice/create"><i class="fa fa-bar-chart-o"></i><span>Create Invoice</span></a></li>
+            <li<?php (Zend_Controller_Front::getInstance()->getRequest()->getControllerName() == "invoice" && Zend_Controller_Front::getInstance()->getRequest()->getActionName() == "list" ? print ' class="active"' : "" ); ?>><a href="/invoice/list"><i class="fa fa-users"></i><span>List Invoices</span></a></li>
           </ul>
         </div>
        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
