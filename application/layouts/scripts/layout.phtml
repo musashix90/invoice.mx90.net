@@ -1,0 +1,58 @@
+<?php echo $this->doctype() ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title><?php if (isset($this->title)) { echo "Invoicer: ".$this->title; } else { echo "Invoicer"; } ?></title>
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/global.css" rel="stylesheet">
+	<link href="/css/font-awesome.min.css" rel="stylesheet">
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Invoicer</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/">Dashboard</a></li>
+	    <li id="fat-menu" class="dropdown">
+              <a id="drop3" class="dropdown-toggle" data-toggle="dropdown" role="button" href="#"><?php echo $this->identity->first_name." ".$this->identity->last_name; ?> <b class="caret"></b></a>
+              <ul class="dropdown-menu" aria-labelledby="drop3" role="menu">
+                <li role="presentation">
+                  <a href="/user/logout" tabindex="-1" role="menuitem"><span class="glyphicon glyphicon-log-out"></span>&nbsp; &nbsp; Logout</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+<!--          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>-->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+	    <li<?php (Zend_Controller_Front::getInstance()->getRequest()->getControllerName() == "index" ? print ' class="active"' : "" ); ?>><a href="/invoice/create"><i class="fa fa-bar-chart-o"></i><span>Create Invoice</span></a></li>
+            <li<?php (Zend_Controller_Front::getInstance()->getRequest()->getControllerName() == "customer" ? print ' class="active"' : "" ); ?>><a href="/invoice/list"><i class="fa fa-users"></i><span>List Invoices</span></a></li>
+          </ul>
+        </div>
+       <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+ <?php echo $this->layout()->content ?>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
+

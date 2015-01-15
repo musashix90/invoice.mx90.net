@@ -1,0 +1,195 @@
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+}
+
+
+/*
+ * Global add-ons
+ */
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+
+/* Navbar */
+.navbar {
+	background-color: #234256;
+}
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 25px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  background-color: #213345;
+/*    background-color: #f5f5f5;*/
+/*   border-right: 1px solid #eee; */
+  }
+}
+
+/* Sidebar navigation */
+.nav-sidebar {
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+  color: #8EA3AD;
+  font-weight:600;
+}
+
+.nav-sidebar > .active > a {
+  color: #fff;
+  background-color: #1a2936;
+  border-left:2px solid #DD5714;
+}
+
+.nav-sidebar > li > a:hover,
+.nav-sidebar > li > a:focus {
+  color: #FFFFFF;
+  background-color: #233B4E;
+  border-left: 2px solid #FC9D23;
+}
+
+.nav-sidebar > li > a {
+}
+
+/*
+ * Main content
+ */
+
+.main {
+  padding: 20px;
+  background: none repeat scroll 0% 0% #F5F5F5;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+
+.main .page-header {
+  margin-top: 0;
+}
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.dashstat {
+    background: none repeat scroll 0% 0% #FFF;
+    position: relative;
+    text-align: right;
+    margin-bottom: 30px;
+    height: 70px;
+}
+
+.dashstat i {
+    text-align: center;
+    display: block;
+    color: #FFF;
+    width: 100px;
+    height: 68px;
+    font-size: 22px;
+    line-height: 68px;
+    float: left;
+    margin-right: 10px;
+}
+
+.red {
+	background-color: #E74C3C;
+}
+
+.box {
+    border-radius: 2px;
+    box-shadow: 0px 1px 0px 1px #E4E6EB;
+    margin: 0px 0px 30px;
+}
+
+.dashstat .title,
+.dashstat .value {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.dashstat .value {
+  padding-top: 4px;
+  font-size: 28px;
+}
+
+.dashstat .title {
+  color: #c0cadd;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.inline-headers h1, .inline-headers h2, .inline-headers h4 {
+  display: inline-block;
+}
+
+.bootstrap-datetimepicker-widget a:hover {
+	color: black;
+}
+
+.table-desc {
+	width: 250px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.nav-sidebar > li > a [class^="fa-"], .nav-sidebar > li > a [class*=" fa-"] {
+	font-size: 20px;
+	width: 25px;
+	display: inline-block;
+	text-align: center;
+	margin-right: 10px;
+	color: white;
+}
+
+.nav-sidebar > li > a > span {
+	position: relative;
+	top: -1px;
+}

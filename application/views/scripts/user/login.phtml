@@ -1,0 +1,26 @@
+<div class="container" style="margin-top:30px">
+	<div class="col-md-5 center-block" style="float:none;">
+		<div class="panel panel-default">
+			<div class="panel-heading"><h3 class="panel-title"><strong>Sign in</strong></h3></div>
+			<div class="panel-body">
+<?php if (isset($this->message) && $this->message != '') { ?>
+				<div class="alert alert-dismissable alert-danger">
+					<button type="button" class="close" data-dismiss="alert">×</button>
+					<?php echo $this->message."\n"; ?>
+				</div>
+<?php } ?>
+				<form role="form" method="post">
+					<div class="form-group">
+						<label for="username">Username</label>
+						<input type="username" class="form-control" style="border-radius:0px" id="username" name="username" placeholder="Enter username" tabindex=1>
+					</div>
+					<div class="form-group">
+						<label for="password">Password <a href="/user/forgot_password">(forgot password)</a></label>
+						<input type="password" class="form-control" style="border-radius:0px" id="password" name="password" placeholder="Password" tabindex=2>
+					</div>
+					<button type="submit" class="btn btn-sm btn-default" tabindex=3>Sign in</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

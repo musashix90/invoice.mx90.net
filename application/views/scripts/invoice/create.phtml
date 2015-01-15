@@ -1,0 +1,276 @@
+<form class="form-horizontal" method="post">
+	<fieldset>
+		<legend>Create Invoice</legend>
+		<?php if (isset($this->message) && $this->message != '') { ?>
+			<div class="alert alert-dismissable alert-danger">
+				<button type="button" class="close" data-dismiss="alert">×</button>
+				<?php echo $this->message."\n"; ?>
+			</div>
+<?php } ?>
+		<div class="form-group">
+			<label for="invoice_name" class="col-lg-2 control-label">Customer Name</label>
+			<div class="col-lg-4">
+				<input class="form-control" name="invoice_name" id="invoice_name" placeholder="Customer name" type="text" value="<?php echo $this->invoice_name; ?>">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="invoice_addr1" class="col-lg-2 control-label">Address 1</label>
+			<div class="col-lg-4">
+				<input class="form-control" name="invoice_addr1" id="invoice_addr1" placeholder="Address 1" type="text" value="<?php echo $this->invoice_addr1; ?>">
+			</div>
+<!--
+			<label for="invoice_addr2" class="col-lg-2 control-label">Address 2</label>
+			<div class="col-lg-4">
+				<input class="form-control" name="invoice_addr2" id="invoice_addr2" placeholder="Address 2" type="text" value="<?php echo $this->invoice_addr2; ?>">
+			</div> -->
+		</div>
+		<div class="form-group">
+			<label for="invoice_city" class="col-lg-2 control-label">City</label>
+			<div class="col-lg-4">
+				<input class="form-control" name="invoice_city" id="invoice_city" placeholder="City" type="text" value="<?php echo $this->invoice_city; ?>">
+			</div>
+
+			<label for="invoice_state" class="col-lg-1 control-label">State</label>
+			<div class="col-lg-2">
+				<input class="form-control" name="invoice_state" id="invoice_state" placeholder="State" type="text" value="<?php echo $this->invoice_state; ?>">
+			</div>
+
+			<label for="invoice_zip" class="col-lg-1 control-label">Zip</label>
+			<div class="col-lg-2">
+				<input class="form-control" name="invoice_zip" id="invoice_zip" placeholder="Zipcode" type="text" value="<?php echo $this->invoice_zip; ?>">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="invoice_shipping" class="col-lg-2 control-label">Shipping</label>
+			<div class="col-lg-3">
+				<div class="input-group">
+					<div class="input-group-addon">$</div>
+					<input class="form-control" name="invoice_shipping" id="invoice_shipping" placeholder="Shipping cost" type="text" value="<?php echo $this->invoice_shipping; ?>">
+				</div>
+			</div>
+			<label for="invoice_adj" class="col-lg-2 control-label">Adjustments</label>
+			<div class="col-lg-3">
+				<div class="input-group">
+					<div class="input-group-addon">$</div>
+					<input class="form-control" name="invoice_adj" id="invoice_adj" placeholder="Invoice adjustments" type="text" value="<?php echo $this->invoice_adj; ?>">
+				</div>
+			</div>
+		</div>			
+		<div class="form-group" id="g1">
+			<div class="col-lg-4 col-sm-offset-2">
+				<input class="form-control" name="invoice_desc1" id="invoice_desc1" placeholder="Item description" type="text" value="<?php echo $this->invoice_desc1; ?>">
+			</div>
+
+			<div class="col-lg-2">
+				<input class="form-control" name="invoice_qty1" id="invoice_qty1" placeholder="Quantity" type="text" value="<?php echo $this->invoice_qty1; ?>">
+			</div>
+
+			<div class="col-lg-2">
+				<div class="input-group">
+					<div class="input-group-addon">$</div>
+					<input class="form-control" name="invoice_price1" id="invoice_price1" placeholder="Price" type="text" value="<?php echo $this->invoice_price1; ?>">
+				</div>
+			</div>
+			<div class="col-lg-2">
+				<div class="input-group">
+					<div class="input-group-addon">$</div>
+					<input class="form-control" name="invoice_sum1" id="invoice_sum1" type="text" value="0.00" disabled>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group hidden" id="g2">
+			<div class="col-lg-4 col-sm-offset-2">
+				<input class="form-control" name="invoice_desc2" id="invoice_desc2" placeholder="Item description" type="text" value="<?php echo $this->invoice_desc2; ?>">
+			</div>
+
+			<div class="col-lg-2">
+				<input class="form-control" name="invoice_qty2" id="invoice_qty2" placeholder="Quantity" type="text" value="<?php echo $this->invoice_qty2; ?>">
+			</div>
+
+			<div class="col-lg-2">
+				<div class="input-group">
+					<div class="input-group-addon">$</div>
+					<input class="form-control" name="invoice_price2" id="invoice_price2" placeholder="Price" type="text" value="<?php echo $this->invoice_price2; ?>">
+				</div>
+			</div>
+			<div class="col-lg-2">
+				<div class="input-group">
+					<div class="input-group-addon">$</div>
+					<input class="form-control" name="invoice_sum2" id="invoice_sum2" type="text" value="0.00" disabled>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group hidden" id="g3">
+			<div class="col-lg-4 col-sm-offset-2">
+				<input class="form-control" name="invoice_desc3" id="invoice_desc3" placeholder="Item description" type="text" value="<?php echo $this->invoice_desc3; ?>">
+			</div>
+
+			<div class="col-lg-2">
+				<input class="form-control" name="invoice_qty3" id="invoice_qty3" placeholder="Quantity" type="text" value="<?php echo $this->invoice_qty3; ?>">
+			</div>
+
+			<div class="col-lg-2">
+				<div class="input-group">
+					<div class="input-group-addon">$</div>
+					<input class="form-control" name="invoice_price3" id="invoice_price3" placeholder="Price" type="text" value="<?php echo $this->invoice_price3; ?>">
+				</div>
+			</div>
+			<div class="col-lg-2">
+				<div class="input-group">
+					<div class="input-group-addon">$</div>
+					<input class="form-control" name="invoice_sum3" id="invoice_sum3" type="text" value="0.00" disabled>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group hidden" id="g4">
+			<div class="col-lg-4 col-sm-offset-2">
+				<input class="form-control" name="invoice_desc4" id="invoice_desc4" placeholder="Item description" type="text" value="<?php echo $this->invoice_desc4; ?>">
+			</div>
+
+			<div class="col-lg-2">
+				<input class="form-control" name="invoice_qty4" id="invoice_qty4" placeholder="Quantity" type="text" value="<?php echo $this->invoice_qty4; ?>">
+			</div>
+
+			<div class="col-lg-2">
+				<div class="input-group">
+					<div class="input-group-addon">$</div>
+					<input class="form-control" name="invoice_price4" id="invoice_price4" placeholder="Price" type="text" value="<?php echo $this->invoice_price4; ?>">
+				</div>
+			</div>
+			<div class="col-lg-2">
+				<div class="input-group">
+					<div class="input-group-addon">$</div>
+					<input class="form-control" name="invoice_sum4" id="invoice_sum4" type="text" value="0.00" disabled>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group hidden" id="g5">
+			<div class="col-lg-4 col-sm-offset-2">
+				<input class="form-control" name="invoice_desc5" id="invoice_desc5" placeholder="Item description" type="text" value="<?php echo $this->invoice_desc5; ?>">
+			</div>
+
+			<div class="col-lg-2">
+				<input class="form-control" name="invoice_qty5" id="invoice_qty5" placeholder="Quantity" type="text" value="<?php echo $this->invoice_qty5; ?>">
+			</div>
+
+			<div class="col-lg-2">
+				<div class="input-group">
+					<div class="input-group-addon">$</div>
+					<input class="form-control" name="invoice_price5" id="invoice_price5" placeholder="Price" type="text" value="<?php echo $this->invoice_price5; ?>">
+				</div>
+			</div>
+			<div class="col-lg-2">
+				<div class="input-group">
+					<div class="input-group-addon">$</div>
+					<input class="form-control" name="invoice_sum5" id="invoice_sum5" type="text" value="0.00" disabled>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group hidden" id="g6">
+			<div class="col-lg-4 col-sm-offset-2">
+				<input class="form-control" name="invoice_desc6" id="invoice_desc6" placeholder="Item description" type="text" value="<?php echo $this->invoice_desc6; ?>">
+			</div>
+
+			<div class="col-lg-2">
+				<input class="form-control" name="invoice_qty6" id="invoice_qty6" placeholder="Quantity" type="text" value="<?php echo $this->invoice_qty6; ?>">
+			</div>
+
+			<div class="col-lg-2">
+				<div class="input-group">
+					<div class="input-group-addon">$</div>
+					<input class="form-control" name="invoice_price6" id="invoice_price6" placeholder="Price" type="text" value="<?php echo $this->invoice_price6; ?>">
+				</div>
+			</div>
+			<div class="col-lg-2">
+				<div class="input-group">
+					<div class="input-group-addon">$</div>
+					<input class="form-control" name="invoice_sum6" id="invoice_sum6" type="text" value="0.00" disabled>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-lg-12">
+				<button type="button" class="btn btn-info" id="addRow">Add Item</button>
+				<button type="submit" class="btn btn-primary pull-right">Submit</button>
+				<a href="/"><button type="button" class="btn btn-default pull-right" style="margin-right:20px;">Cancel</button></a>
+			</div>
+		</div>
+	</fieldset>
+</form>
+
+<script type="text/javascript">
+	$( "#addRow" ).click(function() {
+		var count = 6 - $("div[class*='hidden']").length + 1;
+		$("div#g"+count).toggleClass("hidden");
+	});
+
+	$("input[id*='invoice_qty']").keyup(function(e) {
+		var str = e.target.id;
+		var iID = str.substr(11);
+		var qtyVal = $('#invoice_qty' + iID).val();
+		if (!qtyVal.isNaN) {
+			var priceVal = $("#invoice_price"+iID).val();
+			if (priceVal != "" && !priceVal.isNaN) {
+				var result = qtyVal * priceVal;
+				$('#invoice_sum' + iID).val(result.formatMoney(2));
+			}
+		}
+	});
+
+	$("input[id*='invoice_qty']").keydown(function(e) {
+		var str = e.target.id;
+		var iID = str.substr(11);
+		var qtyVal = $('#invoice_qty' + iID).val();
+		if (!qtyVal.isNaN) {
+			var priceVal = $("#invoice_price"+iID).val();
+			if (priceVal != "" && !priceVal.isNaN) {
+				var result = qtyVal * priceVal;
+				$('#invoice_sum' + iID).val(result.formatMoney(2));
+			}
+		}
+	});
+
+	$("input[id*='invoice_price']").keyup(function(e) {
+		var str = e.target.id;
+		var iID = str.substr(13);
+		var priceVal = $('#invoice_price' + iID).val();
+		if (!priceVal.isNaN) {
+			var qtyVal = $("#invoice_qty"+iID).val();
+			if (qtyVal != "" && !qtyVal.isNaN) {
+				var result = qtyVal * priceVal;
+				$('#invoice_sum' + iID).val(result.formatMoney(2));
+			}
+		}
+	});
+
+	$("input[id*='invoice_price']").keydown(function(e) {
+		var str = e.target.id;
+		var iID = str.substr(13);
+		var priceVal = $('#invoice_price' + iID).val();
+		if (!priceVal.isNaN) {
+			var qtyVal = $("#invoice_qty"+iID).val();
+			if (qtyVal != "" && !qtyVal.isNaN) {
+				var result = qtyVal * priceVal;
+				$('#invoice_sum' + iID).val(result.formatMoney(2));
+			}
+		}
+	});
+
+
+Number.prototype.formatMoney = function(c, d, t){
+var n = this, 
+    c = isNaN(c = Math.abs(c)) ? 2 : c, 
+    d = d == undefined ? "." : d, 
+    t = t == undefined ? "," : t, 
+    s = n < 0 ? "-" : "", 
+    i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", 
+    j = (j = i.length) > 3 ? j % 3 : 0;
+   return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+ };
+</script>
